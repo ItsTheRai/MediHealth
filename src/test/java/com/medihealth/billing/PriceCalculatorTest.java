@@ -11,7 +11,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class priceCalculatorTest {
+public class PriceCalculatorTest {
 
     @Test
     public void treatmentCost() {
