@@ -13,8 +13,14 @@ public class MedicalServiceTest {
     }
 
     @Test
-    public void testGetXrayCost(){
+    public void testGetXrayCost() {
         MedicalService medicalService = new XrayMedicalService();
         assertEquals(15000, medicalService.getCost());
+    }
+
+    @Test
+    public void testGetBloodTest() {
+        MedicalService medicalService = new BloodTestMedicalService();
+        assertEquals(7800, medicalService.getCost());
     }
 }
