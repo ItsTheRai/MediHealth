@@ -16,7 +16,7 @@ public class BasicDiscountingService implements DiscountingService {
     private final static BigDecimal SENIOR_2_DISCOUNT = new BigDecimal("0.90");
 
     @Override
-    public int getAgeBasedDiscount(int age, int cost) {
+    public int getDiscount(int age, int cost) {
         if (age < 0) {
             throw new IllegalArgumentException();
         }
