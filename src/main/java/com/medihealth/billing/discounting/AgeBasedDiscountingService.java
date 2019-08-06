@@ -28,7 +28,6 @@ public class AgeBasedDiscountingService implements DiscountingService {
         if (patientAge < 0) {
             throw new IllegalArgumentException();
         }
-
         if (CHILD_RANGE.contains(patientAge)) {
             return cost.multiply(CHILD_DISCOUNT);
         } else if (SENIOR_1_RANGE.contains(patientAge)) {

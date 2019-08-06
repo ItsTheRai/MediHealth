@@ -1,6 +1,5 @@
 package com.medihealth.billing.insurance;
 
-import com.medihealth.billing.Money;
 import com.medihealth.billing.services.BloodTestMedicalService;
 import com.medihealth.billing.services.MedicalService;
 
@@ -12,8 +11,6 @@ public class MedihealthInsurance implements Insurance {
 
     @Override
     public BigDecimal calculateDiscount(MedicalService service) {
-        Money serviceBaseCost = service.calculateCost();
-
         if (service instanceof BloodTestMedicalService) {
             return DISCOUNT;
         }

@@ -14,14 +14,6 @@ public class Money {
         this.value = value;
     }
 
-    String getCurrency() {
-        return currency;
-    }
-
-    public int getValue() {
-        return value;
-    }
-
     Money subtract(Money discount) {
         if (!this.currency.equals(discount.getCurrency()) || this.value < discount.getValue()) {
             throw new IllegalArgumentException();
@@ -42,6 +34,14 @@ public class Money {
 
     public Money multiply(int multiplier) {
         return new Money(this.currency, this.value * multiplier);
+    }
+
+    String getCurrency() {
+        return currency;
+    }
+
+    public int getValue() {
+        return value;
     }
 
     @Override

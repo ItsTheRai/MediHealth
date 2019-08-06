@@ -19,12 +19,12 @@ class PriceCalculator {
     }
 
     /**
-     * Calculate the cost of the services taking into account the discounting
+     * Calculate the cost of the services taking into account discounting
      *
      * @param servicesUsed medical services used by the patient
      * @return the total sum of all treatment costs, as a fractional monetary unit
      */
-    public Money treatmentCost(List<MedicalService> servicesUsed) {
+    public Money calculateTreatmentCost(List<MedicalService> servicesUsed) {
         return servicesUsed.stream()
                 .map(this::getCost)
                 .reduce(Money::add)

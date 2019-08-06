@@ -20,7 +20,7 @@ public class PriceCalculatorTest {
 
         List<MedicalService> servicesUsed = new ArrayList<>();
         servicesUsed.add(new BloodTestMedicalService());
-        Money treatmentCost = priceCalculator.treatmentCost(servicesUsed);
+        Money treatmentCost = priceCalculator.calculateTreatmentCost(servicesUsed);
         assertEquals(663, treatmentCost.getValue());
     }
 }
