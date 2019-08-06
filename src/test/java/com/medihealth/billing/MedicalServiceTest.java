@@ -2,14 +2,13 @@ package com.medihealth.billing;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class MedicalServiceTest {
 
     @Test
-    public void testGetCost()
-    {
+    public void testGetCost() {
         MedicalService medicalService = new DiagnisisMedicalService();
-        assertEquals(10123321, medicalService.getCost());
+        assertEquals(6000, medicalService.getCost());
     }
 }
