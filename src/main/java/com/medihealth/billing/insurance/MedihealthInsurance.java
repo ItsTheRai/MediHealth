@@ -1,4 +1,4 @@
-package com.medihealth.billing.discounting;
+package com.medihealth.billing.insurance;
 
 import com.medihealth.billing.services.BloodTestMedicalService;
 import com.medihealth.billing.services.MedicalService;

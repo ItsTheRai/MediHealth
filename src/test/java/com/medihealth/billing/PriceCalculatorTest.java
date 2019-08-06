@@ -1,7 +1,7 @@
 package com.medihealth.billing;
 
 import com.medihealth.billing.discounting.AgeBasedDiscountingService;
-import com.medihealth.billing.discounting.MedihealthInsurance;
+import com.medihealth.billing.insurance.MedihealthInsurance;
 import com.medihealth.billing.services.BloodTestMedicalService;
 import com.medihealth.billing.services.MedicalService;
 import org.junit.Test;

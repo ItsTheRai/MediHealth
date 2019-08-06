@@ -1,5 +1,7 @@
-package com.medihealth.billing.discounting;
+package com.medihealth.billing.insurance;
 
+import com.medihealth.billing.insurance.Insurance;
+import com.medihealth.billing.insurance.MedihealthInsurance;
 import com.medihealth.billing.services.BloodTestMedicalService;
 import com.medihealth.billing.services.EcgMedicalService;
 import org.junit.Test;

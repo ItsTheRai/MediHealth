@@ -1,7 +1,7 @@
 package com.medihealth.billing;
 
 import com.medihealth.billing.discounting.DiscountingService;
-import com.medihealth.billing.discounting.Insurance;
+import com.medihealth.billing.insurance.Insurance;
 import com.medihealth.billing.services.MedicalService;
 
 import java.math.BigDecimal;
