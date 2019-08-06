@@ -4,6 +4,8 @@ import com.medihealth.billing.services.BloodTestMedicalService;
 import com.medihealth.billing.services.EcgMedicalService;
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.junit.Assert.assertEquals;
 
 public class InsuranceTest {
@@ -11,14 +13,14 @@ public class InsuranceTest {
     @Test
     public void testInsuranceDiscount() {
         Insurance discountingService = new MedihealthInsurance();
-        int discount = discountingService.calculateDiscount(new BloodTestMedicalService());
-        assertEquals(1170, discount);
+        BigDecimal discount = discountingService.calculateDiscount(new BloodTestMedicalService());
+        assertEquals(new BigDecimal("0.15"), discount);
     }
 
     @Test
     public void testNoInsuranceDiscount() {
         Insurance discountingService = new MedihealthInsurance();
-        int discount = discountingService.calculateDiscount(new EcgMedicalService());
-        assertEquals(20040, discount);
+        BigDecimal discount = discountingService.calculateDiscount(new EcgMedicalService());
+        assertEquals(new BigDecimal("0"), discount);
     }
 }

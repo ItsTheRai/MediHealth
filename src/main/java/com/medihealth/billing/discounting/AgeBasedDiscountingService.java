@@ -17,7 +17,7 @@ public class AgeBasedDiscountingService implements DiscountingService {
 
     private final int patientAge;
 
-    AgeBasedDiscountingService(int patientAge) {
+    public AgeBasedDiscountingService(int patientAge) {
         this.patientAge = patientAge;
     }
 

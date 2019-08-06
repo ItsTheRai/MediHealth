@@ -2,7 +2,9 @@ package com.medihealth.billing.discounting;
 
 import com.medihealth.billing.services.MedicalService;
 
+import java.math.BigDecimal;
+
 public interface Insurance {
 
-    int calculateDiscount(MedicalService service);
+    BigDecimal calculateDiscount(MedicalService service);
 }

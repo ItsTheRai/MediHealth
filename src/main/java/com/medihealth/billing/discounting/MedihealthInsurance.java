@@ -10,12 +10,12 @@ public class MedihealthInsurance implements Insurance {
     private static final BigDecimal DISCOUNT = new BigDecimal("0.15");
 
     @Override
-    public int calculateDiscount(MedicalService service) {
+    public BigDecimal calculateDiscount(MedicalService service) {
         int serviceBaseCost = service.calculateCost();
 
         if (service instanceof BloodTestMedicalService) {
-            return DISCOUNT.multiply(BigDecimal.valueOf(serviceBaseCost)).intValue();
+            return DISCOUNT;
         }
-        return serviceBaseCost;
+        return new BigDecimal("0");
     }
 }
