@@ -1,6 +1,8 @@
 package com.medihealth.billing.services;
 
+import com.medihealth.billing.Money;
+
 public interface MedicalService {
 
-    int calculateCost();
+    Money calculateCost();
 }

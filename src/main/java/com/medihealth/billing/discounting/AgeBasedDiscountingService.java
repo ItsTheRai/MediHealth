@@ -1,5 +1,7 @@
 package com.medihealth.billing.discounting;
 
+import com.medihealth.billing.Money;
+
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -22,17 +24,17 @@ public class AgeBasedDiscountingService implements DiscountingService {
     }
 
     @Override
-    public int getDiscount(int cost) {
+    public Money getDiscount(Money cost) {
         if (patientAge < 0) {
             throw new IllegalArgumentException();
         }
 
         if (CHILD_RANGE.contains(patientAge)) {
-            return CHILD_DISCOUNT.multiply(BigDecimal.valueOf(cost)).intValue();
+            return cost.multiply(CHILD_DISCOUNT);
         } else if (SENIOR_1_RANGE.contains(patientAge)) {
-            return SENIOR_1_DISCOUNT.multiply(BigDecimal.valueOf(cost)).intValue();
+            return cost.multiply(SENIOR_1_DISCOUNT);
         } else if (SENIOR_2_RANGE.contains(patientAge)) {
-            return SENIOR_2_DISCOUNT.multiply(BigDecimal.valueOf(cost)).intValue();
+            return cost.multiply(SENIOR_2_DISCOUNT);
         }
         throw new IllegalArgumentException();
     }

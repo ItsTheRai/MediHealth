@@ -1,10 +1,12 @@
 package com.medihealth.billing.services;
 
+import com.medihealth.billing.Money;
+
 public class VaccineMedicalService implements MedicalService {
 
-    private static final int SERVICE_COST = 2750;
+    private static final Money SERVICE_COST = new Money("GBP", 2750);
 
-    private static final int VACCINE_COST = 1500;
+    private static final Money VACCINE_COST = new Money("GBP", 1500);
 
     private final int vaccineCount;
 
@@ -13,7 +15,7 @@ public class VaccineMedicalService implements MedicalService {
     }
 
     @Override
-    public int calculateCost() {
-        return SERVICE_COST + VACCINE_COST * vaccineCount;
+    public Money calculateCost() {
+        return SERVICE_COST.add(VACCINE_COST.multiply(vaccineCount));
     }
 }

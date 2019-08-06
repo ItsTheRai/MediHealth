@@ -13,7 +13,6 @@ class PriceCalculator {
 
     private final Insurance insurance;
 
-
     PriceCalculator(DiscountingService discountingService, Insurance insurance) {
         this.discountingService = discountingService;
         this.insurance = insurance;
@@ -25,18 +24,21 @@ class PriceCalculator {
      * @param servicesUsed medical services used by the patient
      * @return the total sum of all treatment costs, as a fractional monetary unit
      */
-    public int treatmentCost(List<MedicalService> servicesUsed) {
+    public Money treatmentCost(List<MedicalService> servicesUsed) {
         return servicesUsed.stream()
-                .reduce(0, (serviceCost, nextService) -> serviceCost + getCost(nextService), Integer::sum);
+                .map(this::getCost)
+                .reduce(Money::add)
+                .orElse(null);
     }
 
-    private int getCost(MedicalService service) {
-        int baseCost = service.calculateCost();
-        int costWithDiscount = baseCost - discountingService.getDiscount(baseCost);
-        return costWithDiscount - getInsuranceDiscount(service, costWithDiscount);
+    private Money getCost(MedicalService service) {
+        Money baseCost = service.calculateCost();
+        Money costWithDiscount = baseCost.subtract(discountingService.getDiscount(baseCost));
+        return costWithDiscount.subtract(getInsuranceDiscount(service, costWithDiscount));
     }
 
-    private int getInsuranceDiscount(MedicalService service, int discountCost) {
-        return insurance.calculateDiscount(service).multiply(BigDecimal.valueOf(discountCost)).intValue();
+    private Money getInsuranceDiscount(MedicalService service, Money discountCost) {
+        return new Money(discountCost.getCurrency(),
+                insurance.calculateDiscount(service).multiply(BigDecimal.valueOf(discountCost.getValue())).intValue());
     }
 }

@@ -1,11 +1,13 @@
 package com.medihealth.billing.services;
 
+import com.medihealth.billing.Money;
+
 public class DiagnosisMedicalService implements MedicalService {
 
-    private final static int COST = 6000;
+    private final static Money COST = new Money("GBP", 6000);
 
     @Override
-    public int calculateCost() {
+    public Money calculateCost() {
         return COST;
     }
 }

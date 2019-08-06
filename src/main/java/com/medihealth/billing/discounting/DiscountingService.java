@@ -1,6 +1,8 @@
 package com.medihealth.billing.discounting;
 
+import com.medihealth.billing.Money;
+
 public interface DiscountingService {
 
-    int getDiscount(int cost);
+    Money getDiscount(Money cost);
 }
