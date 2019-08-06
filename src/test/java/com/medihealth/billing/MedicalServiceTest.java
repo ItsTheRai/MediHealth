@@ -23,4 +23,10 @@ public class MedicalServiceTest {
         MedicalService medicalService = new BloodTestMedicalService();
         assertEquals(7800, medicalService.getCost());
     }
+
+    @Test
+    public void testGetEcgCost() {
+        MedicalService medicalService = new EcgTestMedicalService();
+        assertEquals(20040, medicalService.getCost());
+    }
 }
