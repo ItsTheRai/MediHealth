@@ -1,6 +1,6 @@
-package com.medihealth.billing;
+package com.medihealth.billing.services;
 
-public class VaccineTestMedicalServce implements MedicalService {
+public class VaccineMedicalService implements MedicalService {
 
     private static final int SERVICE_COST = 2750;
 
@@ -8,12 +8,12 @@ public class VaccineTestMedicalServce implements MedicalService {
 
     private final int vaccineCount;
 
-    VaccineTestMedicalServce(int vaccineCount) {
+    VaccineMedicalService(int vaccineCount) {
         this.vaccineCount = vaccineCount;
     }
 
     @Override
-    public int getCost() {
+    public int calculateCost() {
         return SERVICE_COST + VACCINE_COST * vaccineCount;
     }
 }
