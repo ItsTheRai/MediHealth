@@ -22,6 +22,5 @@ public class PriceCalculatorTest {
         servicesUsed.add(new BloodTestMedicalService());
         int treatmentCost = priceCalculator.treatmentCost(servicesUsed);
         assertEquals(663, treatmentCost);
-        System.out.println(treatmentCost);
     }
 }
