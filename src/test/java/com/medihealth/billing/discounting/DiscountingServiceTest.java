@@ -8,33 +8,34 @@ public class DiscountingServiceTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testAgeDiscountFailure() {
-        DiscountingService discountingService = new BasicDiscountingService();
-        discountingService.getDiscount(-9, 100);
+        DiscountingService discountingService = new AgeBasedDiscountingService(-9);
+        discountingService.getDiscount(100);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testImpossibleAgeFailure() {
+        DiscountingService discountingService = new AgeBasedDiscountingService(150);
+        discountingService.getDiscount(100);
     }
 
     @Test
     public void testChildDiscount() {
-        DiscountingService discountingService = new BasicDiscountingService();
-        int ageBasedDiscount = discountingService.getDiscount(3, 100);
+        DiscountingService discountingService = new AgeBasedDiscountingService(3);
+        int ageBasedDiscount = discountingService.getDiscount(100);
         assertEquals(40, ageBasedDiscount);
     }
 
     @Test
     public void testSenior1Discount() {
-        DiscountingService discountingService = new BasicDiscountingService();
-        int ageBasedDiscount = discountingService.getDiscount(67, 100);
+        DiscountingService discountingService = new AgeBasedDiscountingService(67);
+        int ageBasedDiscount = discountingService.getDiscount(100);
         assertEquals(60, ageBasedDiscount);
     }
 
     @Test
     public void testSenior2Discount() {
-        DiscountingService discountingService = new BasicDiscountingService();
-        int ageBasedDiscount = discountingService.getDiscount(99, 100);
+        DiscountingService discountingService = new AgeBasedDiscountingService(99);
+        int ageBasedDiscount = discountingService.getDiscount(100);
         assertEquals(90, ageBasedDiscount);
-    }
-
-    @Test
-    public void testInsuranceDiscount() {
-        DiscountingService discountingService = new BasicDiscountingService();
     }
 }
